@@ -86,6 +86,9 @@
             </li>
         <?php endforeach; ?>
     </ul>
+
+    <br>
+    <h2>Game List in JSON Format</h2>
 </body>
 </body>
 </html>
