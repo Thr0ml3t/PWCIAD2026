@@ -35,6 +35,20 @@
                 "release_year" => 2022,
                 "developer" => "XYZ Studios"
             ],
+             [
+                "title" => "Deadlock",
+                "genre" => "Action",
+                "platform" => "PC",
+                "release_year" => 2022,
+                "developer" => "XYZ Studios"
+            ],
+             [
+                "title" => "Deadlock",
+                "genre" => "Action",
+                "platform" => "PC",
+                "release_year" => 2022,
+                "developer" => "XYZ Studios"
+            ],
             [
                 "title" => "Bloons Tower Defense 6",
                 "genre" => "Strategy",
@@ -88,7 +102,7 @@
     </ul>
 
     <br>
-    <h2>Game List in JSON Format</h2>
+    <h2>Game List in JSON</h2>
 </body>
 </body>
 </html>
