@@ -92,7 +92,7 @@
     <ul>
         <?php foreach ($games as $game): ?>
             <li class="game-item">
-                <strong>Title: <?= $game['title']; ?></strong><br>
+                Title: <?= $game['title']; ?>
                 <strong>Platform:</strong> <?= $game['platform']; ?><br>
                 <strong>Release Year:</strong> <?= $game['release_year']; ?><br>
                 <strong>Developer:</strong> <?= $game['developer']; ?>
