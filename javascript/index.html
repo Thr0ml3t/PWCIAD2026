@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéAPI con JavaScript</title>
+</head>
+<body>
+    <h1>PokéAPI con JavaScript</h1>
+    <p id="status">Cargando...</p>
+    <section id="pokemon" hidden>
+        <h2 id="name"></h2>
+        <img id="sprite" alt="">
+        <p>Número: <span id="number"></span></p>
+        <p>Altura: <span id="height"></span></p>
+        <p>Peso: <span id="weight"></span></p>
+    </section>
+
+    <script>
+        fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+            .then(response => {
+                if (!response.ok) throw new Error('No se pudo consultar la API');
+                return response.json();
+            })
+            .then(pokemon => {
+                document.querySelector('#status').hidden = true;
+                document.querySelector('#pokemon').hidden = false;
+                document.querySelector('#name').textContent = pokemon.name;
+                document.querySelector('#sprite').src = pokemon.sprites.front_default;
+                document.querySelector('#sprite').alt = pokemon.name;
+                document.querySelector('#number').textContent = pokemon.id;
+                document.querySelector('#height').textContent = pokemon.height;
+                document.querySelector('#weight').textContent = pokemon.weight;
+            })
+            .catch(error => {
+                document.querySelector('#status').textContent = error.message;
+            });
+    </script>
+</body>
+</html>
