@@ -1,17 +1,18 @@
 <?php
 
-require_once "core/db.php";
-require_once "models/movie.php";
+use Core\App;
+use Core\Database;
+use Models\Movie;
 
-$db = new Database();
-$conn = $db->connect();
+$db = App::resolve(Database::class);
 
 $movie = new Movie();
 
-$result = $conn->query("SELECT * FROM movies");
+$moviesResult = $db->query("SELECT * FROM movies")->get();
 
-$moviesResult = $result->fetchAll(PDO::FETCH_ASSOC);
-
+$movies = [];
 foreach ($moviesResult as $movieData) {
     $movies[] = $movie->fromArray($movieData);
 }
+
+view('movies.view.php', ['movies' => $movies]);

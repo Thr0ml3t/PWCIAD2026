@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Movie {
     private $conn;
     private $table = 'movies';

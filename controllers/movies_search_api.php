@@ -1,32 +1,19 @@
 <?php
 
-require_once "core/db.php";
-require_once "models/movie.php";
+use Core\App;
+use Core\Database;
 
-$db = new Database();
-$conn = $db->connect();
+$db = App::resolve(Database::class);
 
-$movie = new Movie();
+$terms = $_GET['term'] ?? '';
 
-$terms = $_GET['term'];
-
-$query = "SELECT * FROM movies where 
+$query = "SELECT * FROM movies where
         year like :term or title like :term";
 
-$preparedStatement = $conn->prepare($query,[]);
-
-$result = $preparedStatement->execute([
+$moviesResult = $db->query($query, [
     ':term' => "%$terms%",
-]);
-
-if($result === false) {
-    echo json_encode(['error' => 'Query execution failed']);
-    exit;
-}
-
-$moviesResult = $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+])->get();
 
 header('Content-Type: application/json');
-
 
 echo json_encode($moviesResult);

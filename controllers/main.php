@@ -59,4 +59,8 @@
         ];
 
         $listOwner = "Fausto Islas";
-    ?>
+
+view('main.view.php', [
+    'games' => $games,
+    'listOwner' => $listOwner,
+]);

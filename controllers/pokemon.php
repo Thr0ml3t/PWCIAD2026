@@ -32,3 +32,5 @@ $pokemon = [
         "abilities" => ["Cursed Body"]
     ]
 ];
+
+view('pokemon.view.php', ['pokemon' => $pokemon]);
