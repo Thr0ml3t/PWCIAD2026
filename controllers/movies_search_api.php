@@ -1,19 +1,9 @@
 <?php
 
-use Core\App;
-use Core\Database;
+use Models\Movie;
 
-$db = App::resolve(Database::class);
-
-$terms = $_GET['term'] ?? '';
-
-$query = "SELECT * FROM movies where
-        year like :term or title like :term";
-
-$moviesResult = $db->query($query, [
-    ':term' => "%$terms%",
-])->get();
+$movies = (new Movie())->search($_GET['term'] ?? '');
 
 header('Content-Type: application/json');
 
-echo json_encode($moviesResult);
+echo json_encode($movies);
