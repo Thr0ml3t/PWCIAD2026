@@ -34,3 +34,10 @@ function abort($code = 404)
 
     die();
 }
+
+function redirect($path)
+{
+    header("Location: {$path}");
+
+    exit();
+}
