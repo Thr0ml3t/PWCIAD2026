@@ -32,4 +32,9 @@ class Database
     {
         return $this->statement->fetchAll();
     }
+
+    public function first()
+    {
+        return $this->statement->fetch();
+    }
 }

@@ -4,4 +4,4 @@ use Models\Movie;
 
 $movies = (new Movie())->all();
 
-view('movies.view.php', ['movies' => $movies]);
+view('movies.view.php', ['movies' => $movies, 'user' => $user ?? null]);

@@ -6,6 +6,13 @@
 
     <form method="POST" action="/login" class="card space-y-4" novalidate>
         <div>
+            <div class="flex justify-between">
+                <ul>
+                    <?php if ($error): ?>
+                        <li class="error"><?= $error ?></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
             <label for="email" class="label">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" class="input"
                    value="<?= htmlspecialchars($email ?? '') ?>"
